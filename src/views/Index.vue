@@ -57,11 +57,8 @@ export default {
         //获取页面网址最后一段(用于确定nav栏选项)
         getLastSegmentOfUrl() {
             const pathname = window.location.href;
-            console.log(pathname)
             const segments = pathname.split('/');
-            console.log(segments)
             const lastSegment = segments[segments.length - 1] || segments[segments.length - 2];
-            console.log(lastSegment)
             return lastSegment;
         }
     }

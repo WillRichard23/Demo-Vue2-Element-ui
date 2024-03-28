@@ -10,8 +10,8 @@ import Header from '@/components/Header/Header.vue';
 
 export default {
     name: 'setting',
-    data: {
-        return() {
+    data() {
+        return {
 
         }
     },

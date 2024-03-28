@@ -17,7 +17,7 @@
 export default {
     name: 'Header',
     props: {
-        isBack: Boolean
+        isBack: false
     },
     methods: {
         navBack() {
