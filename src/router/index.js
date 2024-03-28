@@ -11,7 +11,6 @@ VueRouter.prototype.push = function push(location) {
 const routes = [
   {
     path: "/",
-    name: "Index",
     meta: {
       auth: true,
     },
@@ -23,7 +22,6 @@ const routes = [
       },
       {
         path: "/Home",
-        name: "Home",
         meta: {
           auth: false,
           title: "首页",
@@ -61,6 +59,15 @@ const routes = [
         component: () => import("@/views/News/News.vue"),
       },
     ],
+  },
+  {
+    path: "/Setting",
+    name: "Setting",
+    meta: {
+      auth: false,
+      title: "设置",
+    },
+    component: () => import("@/views/Setting/Setting.vue"),
   },
 ];
 

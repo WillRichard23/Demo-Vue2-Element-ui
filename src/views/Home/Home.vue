@@ -7,9 +7,9 @@
             <el-image :src="imgUrl"></el-image>
           </div>
           <div v-for="item in routerList" class="router-box" @click="navTo(item.nav)">
-            <div class="iconfont icon center" v-html="item.icon"></div>
-            <button class="router-button center">{{ item.name }}</button>
-            <div class="nav-right center">
+            <div class="iconfont icon" v-html="item.icon"></div>
+            <button class="router-button">{{ item.name }}</button>
+            <div class="nav-right">
               <i class="el-icon-arrow-right"></i>
             </div>
           </div>

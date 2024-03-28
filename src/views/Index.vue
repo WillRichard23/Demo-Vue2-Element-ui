@@ -1,40 +1,68 @@
 <template>
     <div id="Index">
-        <el-header height="100%">
-            <div class="header">
+        <Header is-back="true">
+            <template v-slot:left>
                 <div class="logo"></div>
+            </template>
+            <template v-slot:center>
                 <div class="nav-bar">
-                    <div class="nav-box select" @click="navTo('HomeChildren1')">首页</div>
-                    <div class="nav-box" @click="navTo('News')">新闻</div>
+                    <div :class="[page == 'HomeChildren1' ? 'select' : '', 'nav-box']" @click="navTo('HomeChildren1')">
+                        首页
+                    </div>
+                    <div :class="[page == 'News' ? 'select' : '', 'nav-box']" @click="navTo('News')">新闻</div>
                 </div>
-                <div class="time">{{ now }}</div>
-            </div>
-        </el-header>
+            </template>
+            <template v-slot:right>
+                <div class="header-right">
+                    <div class="iconfont icon" @click="navTo('Setting')">&#xe7d6</div>
+                    <div class="time" v-loading="loading" element-loading-background="rgb(229, 229, 229)">{{ now }}</div>
+                </div>
+            </template>
+        </Header>
         <router-view />
     </div>
 </template>
 
 <script>
+import Header from "@/components/Header/Header.vue";
 import dayjs from "dayjs";
 export default {
     name: 'Index',
     data() {
         return {
-            now: ''
+            now: 'YYYY-MM-DD HH:mm:ss',
+            loading: true,
+            page: 'HomeChildren1'
         }
+    },
+    components:{
+        Header
     },
     created() {
         setInterval(() => {
             this.now = dayjs().format("YYYY-MM-DD HH:mm:ss")
+            this.loading = false
         }, 1000
         )
+        this.page = this.getLastSegmentOfUrl()
     },
     methods: {
+        //页面跳转
         navTo(page) {
-            console.log(page)
+            this.page = page
             this.$router.push({
                 name: page
             })
+        },
+        //获取页面网址最后一段(用于确定nav栏选项)
+        getLastSegmentOfUrl() {
+            const pathname = window.location.href;
+            console.log(pathname)
+            const segments = pathname.split('/');
+            console.log(segments)
+            const lastSegment = segments[segments.length - 1] || segments[segments.length - 2];
+            console.log(lastSegment)
+            return lastSegment;
         }
     }
 }

@@ -13,11 +13,6 @@
         background-size: 100%;
         background-repeat: no-repeat;
     }
-    .time {
-        font-size: 1.2rem;
-        text-align: right;
-        color: #e5e5e5;
-    }
     .nav-bar {
         display: flex;
         justify-content: space-around;
@@ -27,10 +22,32 @@
             padding-bottom: 6px;
             font-size: 1.1rem;
             cursor: pointer;
+            /*禁用复制*/
+            -moz-user-select: none; /* Firefox私有属性 */
+            -webkit-user-select: none; /* WebKit内核私有属性 */
+            -ms-user-select: none; /* IE私有属性(IE10及以后) */
+            -khtml-user-select: none; /* KHTML内核私有属性 */
+            -o-user-select: none; /* Opera私有属性 */
+            user-select: none;
         }
         .select {
             border-bottom: 2px solid white;
             color: white;
+        }
+    }
+    .header-right {
+        display: flex;
+        align-items: center;
+        .icon {
+            margin-right: 30px;
+            font-size: 1.8rem;
+            color: rgb(255, 242, 168);
+            cursor: pointer;
+        }
+        .time {
+            font-size: 1.2rem;
+            text-align: right;
+            color: #e5e5e5;
         }
     }
 }

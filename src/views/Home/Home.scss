@@ -20,18 +20,14 @@ body {
         width: calc(100% - 40px);
         height: 40px;
         color: white;
+        display: flex;
+        align-items: center;
         margin: 0 auto;
         border-bottom: 2px solid #e5e5e5;
         cursor: pointer;
         &:hover {
             .router-button {
                 font-size: 1.4rem;
-            }
-            .icon {
-                vertical-align: -0.23rem;
-            }
-            .nav-right {
-                vertical-align: -0.08rem;
             }
         }
         /*禁用复制*/
@@ -41,20 +37,13 @@ body {
         -khtml-user-select: none; /* KHTML内核私有属性 */
         -o-user-select: none; /* Opera私有属性 */
         user-select: none;
-        .center {
-            position: relative;
-            height: 50px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
         .icon {
             font-size: 2rem;
             display: inline-block;
             margin-right: 14px;
-            transition: vertical-align 0.2s;
         }
         .router-button {
-            width: 70%;
+            flex: 1;
             border: 0;
             text-align: left;
             outline: none;
@@ -62,14 +51,13 @@ body {
             background-color: rgba(0, 0, 0, 0);
             font-size: 1.2rem;
             color: white;
-            transition: font-size 0.2s;
+            transition: font-size 0.2s linear;
             cursor: pointer;
         }
         .nav-right {
             display: inline-block;
             font-size: 1.4rem;
-            vertical-align: -0.15rem;
-            transition: vertical-align 0.2s;
+            vertical-align: bottom;
         }
         &:last-child {
             border: none;
