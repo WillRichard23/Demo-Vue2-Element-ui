@@ -1,0 +1,30 @@
+{
+  "id": "4483634",
+  "name": "测试项目",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "6151152",
+      "name": "cog-fill",
+      "font_class": "cog-fill",
+      "unicode": "e7d6",
+      "unicode_decimal": 59350
+    },
+    {
+      "icon_id": "6150971",
+      "name": "supervise",
+      "font_class": "supervise",
+      "unicode": "e777",
+      "unicode_decimal": 59255
+    },
+    {
+      "icon_id": "6151095",
+      "name": "paper plane-fill",
+      "font_class": "paperplane-fill",
+      "unicode": "e7a9",
+      "unicode_decimal": 59305
+    }
+  ]
+}
