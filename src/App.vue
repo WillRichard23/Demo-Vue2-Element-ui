@@ -4,6 +4,19 @@
   </div>
 </template>
 
+<script>
+
+export default {
+  name: 'app',
+  mounted() {
+    window.getStore = this.$store.getters
+  },
+  methods: {
+
+  }
+}
+</script>
+
 <style lang="scss" scoped>
 @font-face {
   font-family: "iconfont";

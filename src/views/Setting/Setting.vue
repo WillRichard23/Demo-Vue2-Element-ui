@@ -18,6 +18,9 @@ export default {
     components: {
         Header
     },
+    created() {
+        this.$Common.getUserInfo()
+    },
     methods: {
 
     }

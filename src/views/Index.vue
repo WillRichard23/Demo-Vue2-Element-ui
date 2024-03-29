@@ -1,12 +1,12 @@
 <template>
     <div id="Index">
-        <Header is-back="true">
+        <Header>
             <template v-slot:left>
                 <div class="logo"></div>
             </template>
             <template v-slot:center>
                 <div class="nav-bar">
-                    <div :class="[page == 'HomeChildren1' ? 'select' : '', 'nav-box']" @click="navTo('HomeChildren1')">
+                    <div :class="[!page.indexOf('Home') ? 'select' : '', 'nav-box']" @click="navTo('HomeChildren1')">
                         首页
                     </div>
                     <div :class="[page == 'News' ? 'select' : '', 'nav-box']" @click="navTo('News')">新闻</div>
@@ -32,7 +32,7 @@ export default {
         return {
             now: 'YYYY-MM-DD HH:mm:ss',
             loading: true,
-            page: 'HomeChildren1'
+            page: 'Home'
         }
     },
     components:{
@@ -55,10 +55,11 @@ export default {
             })
         },
         //获取页面网址最后一段(用于确定nav栏选项)
-        getLastSegmentOfUrl() {
+        getLastSegmentOfUrl() { 
             const pathname = window.location.href;
-            const segments = pathname.split('/');
-            const lastSegment = segments[segments.length - 1] || segments[segments.length - 2];
+            const match = pathname.match(/\/([^/]+)\/?([^/]*)$/);
+            console.log(match)
+            const lastSegment = match ? match[2] : match[1];
             return lastSegment;
         }
     }

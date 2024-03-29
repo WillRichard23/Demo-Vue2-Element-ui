@@ -7,6 +7,7 @@ import "@/assets/iconfont/iconfont.css";
 import request from "@/utils/request";
 import Common from "@/utils/common";
 import axios from "axios";
+import store from "@/store/store";
 
 Vue.config.productionTip = false;
 
@@ -16,6 +17,7 @@ Vue.use(ElementUI);
 Vue.prototype.$request = request;
 Vue.prototype.$axios = axios;
 Vue.prototype.$Common = Common;
+Vue.prototype.$store = store;
 
 new Vue({
   router,

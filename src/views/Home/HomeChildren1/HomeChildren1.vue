@@ -30,31 +30,20 @@ export default {
                     // password: 'Ubains@123',
                     verifyCode: 'csba'
                 }
-            }).then(res => {
+            }).then(async res => {
                 if (res.data.code == 200) {
                     let token = res.data.result.tokenHead + res.data.result.token;
                     localStorage.setItem('token', token)
-                    this.getUserInfo(token)
+                    let data = await this.$Common.getUserInfo()
+                    if (data) {
+                        this.username = data.nickname ? data.nickname : data.userAccount;
+                        this.company = data.company.companyName;
+                        this.sex = data.sex;
+                    }
                 }
             })
                 .catch(error => { console.log(error) })
         },
-        //获取用户信息
-        getUserInfo(token) {
-            this.$request({
-                method: 'post',
-                url: '/api/system/getUserInfo',
-                headers: { Authorization: token },
-                parmas: { type: 1 }
-            }).then(res => {
-                if (res.data.code == 200) {
-                    let data = res.data.result
-                    this.username = data.nickname ? data.nickname : data.userAccount
-                    this.company = data.company.companyName
-                    this.sex = data.sex
-                }
-            })
-        }
     }
 }
 </script>

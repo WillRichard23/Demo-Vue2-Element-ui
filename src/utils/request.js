@@ -1,11 +1,16 @@
 import axios from "axios";
 import { Loading, Message } from "element-ui";
+import Router from "@/router/index";
 
 //创建axios实例
 const request = axios.create({
   baseURL: process.env.BASE_URL,
   timeout: 5000,
   withCredentials: false,
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: localStorage.getItem("token"),
+  },
 });
 
 //加载动画设置
@@ -17,12 +22,9 @@ let loadingInstance;
 // 创建请求拦截
 request.interceptors.request.use(
   (config) => {
+    console.log(localStorage.getItem("token"));
     //开启加载动画
     loadingInstance = Loading.service(loadingOption);
-    // 如果开启 token 认证
-    if (request.useTokenAuthorization) {
-      config.headers["Authorization"] = localStorage.getItem("token"); // 请求头携带 token
-    }
     // 设置请求头
     if (!config.headers["content-type"]) {
       // 如果没有设置请求头
@@ -32,6 +34,7 @@ request.interceptors.request.use(
         config.headers["content-type"] = "application/json"; // 默认类型
       }
     }
+    console.log("请求配置", config);
     return config;
   },
   (error) => {
@@ -46,7 +49,7 @@ request.interceptors.response.use(
     let responseCode = response.data.code;
     Message.closeAll();
     if (responseCode == "200") {
-      Message.success(response.data.message);
+      Message.success("请求成功");
     } else if (responseCode != "200") {
       //401:未登陆/被停用/token过期等情况
       //B0005:token校验失败
@@ -58,17 +61,21 @@ request.interceptors.response.use(
         responseCode == "B0005" ||
         responseCode == "A0076"
       ) {
-        this.$router.push({
-          name: "Home",
+        Router.push({
+          name: "HomeChildren1",
         });
       }
     }
     return response;
   },
   (error) => {
+    //跨域存在获取不到状态码的情况
     if (error && error.response) {
       Message.error(response.data.message);
-    } else {
+    }
+    //跨域获取不到状态码或其他状态码进行的处理
+    //网络超时异常处理
+    else {
       if (
         error.code === "ECONNABORTED" ||
         error.message === "Network Error" ||

@@ -32,7 +32,6 @@ export default {
   name: "Home",
   data() {
     return {
-      now: '',
       routerList: [
         { name: '信息发布', nav: 'HomeChildren1', icon: '&#xe7a9;' },
         { name: '安全卫士', nav: 'HomeChildren2', icon: '&#xe777;' },
@@ -41,10 +40,6 @@ export default {
     };
   },
   created() {
-    setInterval(() => {
-      this.now = dayjs().format("YYYY-MM-DD HH:mm:ss")
-    }, 1000
-    )
   },
   methods: {
     navTo(page) {
