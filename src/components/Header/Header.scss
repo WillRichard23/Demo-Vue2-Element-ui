@@ -1,16 +1,16 @@
 .header {
-    background-color: rgb(46, 103, 228);
-    padding: 0 20px;
-    height: 8vh;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    .nav-back {
-        display: inline-block;
-        font-size: 1.4rem;
-        vertical-align: bottom;
-        cursor: pointer;
-    }
+  background-color: rgb(46, 103, 228);
+  padding: 0 20px;
+  height: 8vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  .nav-back {
+    display: inline-block;
+    font-size: 1.4rem;
+    vertical-align: bottom;
+    cursor: pointer;
+  }
 }

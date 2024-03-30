@@ -1,0 +1,55 @@
+.login {
+  background-color: #eee5bf;
+}
+.left {
+  height: 100vh;
+  border-radius: 10px;
+  background-color: #eee5bf;
+  flex: 1;
+  overflow: hidden;
+  z-index: 10;
+  box-shadow: 5px 10px 20px rgba(178, 180, 152, 0.3);
+  .left_image {
+    width: 110%;
+    height: 110%;
+    right: 80px;
+    filter: brightness(80%);
+  }
+}
+.right {
+  width: 600px;
+  padding: 40px;
+  padding-top: 140px;
+  background-color: #eee5bf;
+  box-sizing: border-box;
+  .logo {
+    margin-bottom: 40px;
+    text-align: center;
+    .logo_image {
+      width: 200px;
+    }
+  }
+  .router {
+    min-height: 330px;
+    margin: 0 40px;
+    background-color: #f8f6ee;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 5px 10px 20px rgba(192, 192, 188, 0.2);
+    .menu {
+      display: flex;
+      justify-content: space-around;
+      .menu-item {
+        width: 100%;
+        padding: 20px;
+        background-color: #c7bf9b;
+        font-size: 1rem;
+        color: #333;
+      }
+      .select {
+        background-color: #f8f6ee;
+        font-weight: bold;
+      }
+    }
+  }
+}

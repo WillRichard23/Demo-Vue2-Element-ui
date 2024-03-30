@@ -17,7 +17,10 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@import url("@/assets/css/common.scss");
+@import url("@/assets/css/reset.css");
+
 @font-face {
   font-family: "iconfont";
   src:

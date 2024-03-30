@@ -1,71 +1,64 @@
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .aside {
-    background-color: rgb(148, 182, 255);
-    height: 100%;
+  background-color: rgb(148, 182, 255);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .img {
+    margin-top: 20px;
+    padding: 20px;
+    flex: 0.95;
+  }
+  .router-box {
+    margin: 40px;
+    padding: 10px 0;
+    text-align: center;
+    width: calc(100% - 40px);
+    height: 40px;
+    color: white;
     display: flex;
-    flex-direction: column;
-    .img {
-        margin-top: 20px;
-        padding: 20px;
-        flex: 0.95;
+    align-items: center;
+    margin: 0 auto;
+    border-bottom: 2px solid #e5e5e5;
+    cursor: pointer;
+    &:hover {
+      .router-button {
+        font-size: 1.4rem;
+      }
     }
-    .router-box {
-        margin: 40px;
-        padding: 10px 0;
-        text-align: center;
-        width: calc(100% - 40px);
-        height: 40px;
-        color: white;
-        display: flex;
-        align-items: center;
-        margin: 0 auto;
-        border-bottom: 2px solid #e5e5e5;
-        cursor: pointer;
-        &:hover {
-            .router-button {
-                font-size: 1.4rem;
-            }
-        }
-        /*禁用复制*/
-        -moz-user-select: none; /* Firefox私有属性 */
-        -webkit-user-select: none; /* WebKit内核私有属性 */
-        -ms-user-select: none; /* IE私有属性(IE10及以后) */
-        -khtml-user-select: none; /* KHTML内核私有属性 */
-        -o-user-select: none; /* Opera私有属性 */
-        user-select: none;
-        .icon {
-            font-size: 2rem;
-            display: inline-block;
-            margin-right: 14px;
-        }
-        .router-button {
-            flex: 1;
-            border: 0;
-            text-align: left;
-            outline: none;
-            box-shadow: none;
-            background-color: rgba(0, 0, 0, 0);
-            font-size: 1.2rem;
-            color: white;
-            transition: font-size 0.2s linear;
-            cursor: pointer;
-        }
-        .nav-right {
-            display: inline-block;
-            font-size: 1.4rem;
-            vertical-align: bottom;
-        }
-        &:last-child {
-            border: none;
-        }
+    .icon {
+      font-size: 2rem;
+      display: inline-block;
+      margin-right: 14px;
     }
+    .router-button {
+      flex: 1;
+      border: 0;
+      text-align: left;
+      outline: none;
+      box-shadow: none;
+      background-color: rgba(0, 0, 0, 0);
+      font-size: 1.2rem;
+      color: white;
+      transition: font-size 0.2s linear;
+      cursor: pointer;
+    }
+    .nav-right {
+      display: inline-block;
+      font-size: 1.4rem;
+      vertical-align: bottom;
+    }
+    &:last-child {
+      border: none;
+    }
+  }
 }
 
 .main {
-    background-color: #f7f8fa;
-    height: 92vh;
+  background-color: #f7f8fa;
+  height: 92vh;
 }

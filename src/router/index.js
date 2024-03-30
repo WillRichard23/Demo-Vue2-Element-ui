@@ -18,7 +18,7 @@ const routes = [
     children: [
       {
         path: "",
-        redirect: "/Home",
+        redirect: "/Login",
       },
       {
         path: "/Home",
@@ -68,6 +68,30 @@ const routes = [
       title: "设置",
     },
     component: () => import("@/views/Setting/Setting.vue"),
+  },
+  {
+    path: "/Login",
+    meta: {
+      auth: false,
+      title: "登录",
+    },
+    component: () => import("@/views/Login/Login.vue"),
+    children:[
+      {
+        path:"",
+        redirect:'Loginf'
+      },
+      {
+        path:"/Login/Loginf",
+        name:'Loginf',
+        component:() => import('@/views/Login/Loginf/Loginf')
+      },
+      {
+        path:"/Login/Loginsms",
+        name:'Loginsms',
+        component:() => import('@/views/Login/Loginsms/Loginsms')
+      }
+    ]
   },
 ];
 
